@@ -103,10 +103,27 @@ mycd() {
 	'myls';	
 }
 
+vplug() {
+        local NAME=$(basename $1);
+        cd ~/.vim/bundle;
+        git clone $1;
+        cd ~;
+        git submodule add -f $1 .vim/bundle/$NAME;
+        git commit -m "Add $NAME plugin for vim";
+        git push --set-upstream origin master;
+}
+
+vunplug() {
+        cd ~;
+        git rm .vim/bundle/$1;
+        git commit -m "Remove $1 plugin for vim";
+        git push --set-upstream origin master;
+}
+
 # Aliases
 alias cd="mycd"
 alias ls="myls"
-
-
+alias vplug="vplug"
+alias vunplug="vunplug"
 
 
