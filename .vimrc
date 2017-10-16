@@ -1,30 +1,6 @@
-" PLUGINS
+" PLUGINS (WITH PATHOGEN)
 
-call plug#begin()
-
-" Statusline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-" Tmux statusline generator 
-Plug 'edkolev/tmuxline.vim'
-
-" File explorer (Ctrl+N)
-Plug 'scrooloose/nerdtree'
-
-" Fuzzy finder (Ctrl+P)
-Plug 'ctrlpvim/ctrlp.vim'
-
-" Find in path
-Plug 'mileszs/ack.vim'
-
-" Mappings to easily delete, change and add parentheses, brackets, quotes, XML tags, and more in pairs 
-Plug 'tpope/vim-surround'
-
-" Mappings to move between tmux+vim panes
-Plug 'christoomey/vim-tmux-navigator'
-
-call plug#end()
+execute pathogen#infect()
 
 " SETTINGS
 
@@ -68,7 +44,7 @@ endif
 set hlsearch
 
 " Highlight spelling mistakes
-set spell
+"set spell
 
 " 6 MULTIPLE WINDOWS
 

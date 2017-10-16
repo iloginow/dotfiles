@@ -199,6 +199,7 @@ mode "LAUNCH" {
 	bindsym r exec "xfreerdp /v:VisualLab2222.cloudapp.net:3389", mode "default"
 	bindsym z exec "zathura", mode "default"
 	bindsym s exec "gscreenshot", mode "default"
+	bindsym m exec "rambox", mode "default"
 
 	# back to normal
 	bindsym Return mode "default"
@@ -227,4 +228,3 @@ bindsym $mod+End mode "SYSTEM"
 # Startup
 exec --no-startup-id google-chrome-stable
 exec --no-startup-id termite
-exec --no-startup-id rambox

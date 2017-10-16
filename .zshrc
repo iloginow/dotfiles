@@ -95,7 +95,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 # Functions
 
 myls() {
-	ls -a -l --group-directories-first;
+	ls -a -l --group-directories-first $1;
 }
 
 mycd() {
