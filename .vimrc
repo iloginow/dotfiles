@@ -189,3 +189,4 @@ let g:tmuxline_preset = {
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 nnoremap <Space>[ O<Esc>
 nnoremap <Space>] o<Esc>
+
