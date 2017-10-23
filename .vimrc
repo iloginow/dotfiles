@@ -102,6 +102,10 @@ set smartindent
 " Insert space characters whenever the tab key is pressed
 set expandtab
 
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+
 " 16 FOLDING
 
 " 17 DIFF MODE
@@ -183,6 +187,24 @@ let g:tmuxline_preset = {
       \'z'    : '#H',
       \ 'options': {
       \'status-justify': 'left'}}
+
+" AUTOCOMPLETION
+
+" YouCompleteMe Engine
+let g:ycm_global_ycm_extra_conf = '/usr/share/vim/vimfiles/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_server_python_interpreter = '/usr/bin/python2'
+
+" SNIPPETS
+
+" Trigger configuration
+let g:UltiSnipsExpandTrigger = '<CR>'
+let g:UltiSnipsJumpForwardTrigger = '<CR>'
+
+" Make :UltiSnipsEdit to split the window
+let g:UltiSnipsEditSplit = 'vertical'
+
+" Snippets path
+let g:UltiSnipsSnippetDirectories = ['~/.vim/snippets']
 
 " KEY MAPPINGS
 
