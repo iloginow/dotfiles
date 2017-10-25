@@ -197,8 +197,8 @@ let g:ycm_server_python_interpreter = '/usr/bin/python2'
 " SNIPPETS
 
 " Trigger configuration
-let g:UltiSnipsExpandTrigger = '<CR>'
-let g:UltiSnipsJumpForwardTrigger = '<CR>'
+let g:UltiSnipsExpandTrigger = '<Insert>'
+let g:UltiSnipsJumpForwardTrigger = '<Insert>'
 
 " Make :UltiSnipsEdit to split the window
 let g:UltiSnipsEditSplit = 'vertical'
