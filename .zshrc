@@ -64,7 +64,7 @@ RUBY_GEMS="$(ruby -e 'print Gem.user_dir')"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Plugins
-plugins=(z git npm node zsh-paci tmux extract vi-mode zsh-syntax-highlighting zsh-autosuggestions) 
+plugins=(z git npm node zsh-paci tmux extract zsh-syntax-highlighting zsh-autosuggestions) 
 
 source $ZSH/oh-my-zsh.sh
 source ~/bin/tmuxinator.zsh

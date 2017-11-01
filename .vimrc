@@ -185,8 +185,10 @@ let g:tmuxline_preset = {
       \'cwin' : '#I #W',
       \'y'    : '#(whoami)',
       \'z'    : '#H',
-      \ 'options': {
-      \'status-justify': 'left'}}
+      \'options': {
+      \  'status-justify': 'left'
+      \}
+\}
 
 " AUTOCOMPLETION
 
@@ -206,9 +208,58 @@ let g:UltiSnipsEditSplit = 'vertical'
 " Snippets path
 let g:UltiSnipsSnippetDirectories = ['~/.vim/snippets']
 
+" JSON
+
+" No syntax concealing in JSON files
+let g:vim_json_syntax_conceal = 0
+
+" LINTER
+
+" Assign default linters for different filetypes
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\}
+
+" Assign default fixers for different filetypes
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\   'vue': ['eslint']
+\}
+
+" Fix files automatically on save
+let g:ale_fix_on_save = 1
+
 " KEY MAPPINGS
 
+function! Expander()
+
+  let line   = getline(".")
+  let col    = col(".")
+  let before  = line[col-2]
+  let after = line[col-1]
+
+  if before ==# ">" && after ==# "<"
+    return "\<CR>\<C-o>==\<C-o>O"
+
+  elseif before ==# "(" && after ==# ")"
+    return "\<CR>\<C-o>==\<C-o>O"
+
+  elseif before ==# "[" && after ==# "]"
+    return "\<CR>\<C-o>==\<C-o>O"
+
+  elseif before ==# "{" && after ==# "}"
+    return "\<CR>\<C-o>==\<C-o>O"
+
+  else
+    return "\<CR>"
+
+  endif
+
+endfunction
+
+inoremap <expr> <CR> Expander()
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 nnoremap <Space>[ O<Esc>
 nnoremap <Space>] o<Esc>
+nnoremap <silent> <F8> :ALEFix<CR>
 
