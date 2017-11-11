@@ -2,6 +2,8 @@
 
 execute pathogen#infect()
 
+call pathogen#helptags()
+
 " SETTINGS
 
 " 1 IMPORTANT
