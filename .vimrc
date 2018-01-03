@@ -45,6 +45,9 @@ endif
 " Highlight all search pattern matches
 set hlsearch
 
+" Highlight current line
+set cul
+
 " Highlight spelling mistakes
 "set spell
 
@@ -59,6 +62,9 @@ set splitright
 " 7 MULTIPLE TAB PAGES
 
 " 8 TERMINAL
+
+" Fast terminal connection
+set ttyfast
 
 " 9 USING THE MOUSE
 
@@ -85,8 +91,10 @@ set confirm
 
 " 13 SELECTING TEXT
 
-" Point to the system clipboard, allow (Ctrl+C -> p) and (y -> Ctrl+V)
-set clipboard=unnamedplus
+" Point to the system clipboard, allow (Ctrl+C -> ,p) and (YY -> Ctrl+V)
+if has('unnamedplus')
+  set clipboard=unnamed,unnamedplus
+endif
 
 " 14 EDITING TEXT
 
@@ -117,7 +125,7 @@ set softtabstop=2
 " 19 READING AND WRITING FILES
 
 " Autosave
-au FocusLost * :wa
+au FocusLost * :wa
 
 " Automatically write a file when leaving a modified buffer
 set autowrite
@@ -157,12 +165,32 @@ set wildmenu
 " Extended % matching
 runtime macros/matchit.vim
 
+" PYTHON SPECIFIC
+autocmd Filetype python setlocal ts=4 sw=4 sts=4 
+
+" Default highlight for python is better than polyglot
+let g:polyglot_disabled = ['python']
+let python_highlight_all = 1
+
+" HIGHLIGHTING
+
 " Line numbers color
 highlight LineNr ctermfg=19 ctermbg=18
+
+" Cursor line appearance
+highlight CursorLine cterm=NONE ctermbg=18
+
+" Ale warnings color
+highlight ALEErrorSign ctermbg=NONE ctermfg=red
+highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
 
 " PLUGINS OPTIONS
 
 " AIRLINE
+
+if exists("*fugitive#statusline")
+  set statusline+=%{fugitive#statusline()}
+endif
 
 " Use powerline glyphs
 let g:airline_powerline_fonts=1
@@ -172,6 +200,23 @@ let g:airline_theme='base16_spacemacs'
 
 " Get rid of empty triangles
 let g:airline_skip_empty_sections=1
+
+" Show current branch
+let g:airline#extensions#branch#enabled = 1
+
+" Show tabs
+let g:airline#extensions#tabline#enabled = 1
+
+" Show tags
+let g:airline#extensions#tagbar#enabled = 1
+
+" Disable whitespace detection
+let g:airline#extensions#whitespace#enabled = 0
+
+" GREP
+let Grep_Default_Options = '-IR'
+let Grep_Skip_Files = '*.log *.db'
+let Grep_Skip_Dirs = '.git node_modules'
 
 " NERDTREE
 
@@ -194,15 +239,12 @@ let g:tmuxline_preset = {
 
 " AUTOCOMPLETION
 
-" YouCompleteMe Engine
-let g:ycm_global_ycm_extra_conf = '/usr/share/vim/vimfiles/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-let g:ycm_server_python_interpreter = '/usr/bin/python2'
-
 " SNIPPETS
 
 " Trigger configuration
-let g:UltiSnipsExpandTrigger = '<Insert>'
-let g:UltiSnipsJumpForwardTrigger = '<Insert>'
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 " Make :UltiSnipsEdit to split the window
 let g:UltiSnipsEditSplit = 'vertical'
@@ -230,6 +272,13 @@ let g:ale_fixers = {
 
 " Fix files automatically on save
 let g:ale_fix_on_save = 1
+
+" Better error symbols
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+
+" TAGBAR
+let g:tagbar_autofocus = 1
 
 " KEY MAPPINGS
 
@@ -259,9 +308,71 @@ function! Expander()
 
 endfunction
 
+" Map leader to ,
+let mapleader=','
+
 inoremap <expr> <CR> Expander()
+
+" Split
+noremap <Leader>h :<C-u>split<CR>
+noremap <Leader>v :<C-u>vsplit<CR>
+
+" Git
+noremap <Leader>ga :Gwrite<CR>
+noremap <Leader>gc :Gcommit<CR>
+noremap <Leader>gsh :Gpush<CR>
+noremap <Leader>gll :Gpull<CR>
+noremap <Leader>gs :Gstatus<CR>
+noremap <Leader>gb :Gblame<CR>
+noremap <Leader>gd :Gvdiff<CR>
+noremap <Leader>gr :Gremove<CR>
+
+" Buffer nav
+noremap <leader>z :bp<CR>
+noremap <leader>x :bn<CR>
+
+" Close buffer
+noremap <leader>c :bd<CR>
+
+" Copy/Paste/Cut from system clipboard
+noremap YY "+y<CR>
+noremap <leader>p "+gP<CR>
+noremap XX "+x<CR>
+
+" Toggle file browser
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
+
+" Center search results
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" Empty lines
 nnoremap <Space>[ O<Esc>
 nnoremap <Space>] o<Esc>
+
+" Grep
+nnoremap <silent> <leader>f :Rgrep<CR>
+
+" Whitespaces
+nnoremap <silent> <leader>w :StripWhitespace<CR>
+
+" Autofix
 nnoremap <silent> <F8> :ALEFix<CR>
 
+" Clean search (highlight)
+nnoremap <silent> <leader><space> :noh<cr>
+
+" Tagbar
+nmap <silent> <F4> :TagbarToggle<CR>
+
+" Terminal
+nnoremap <silent> <leader>sh :terminal<CR>
+
+" Session management
+nnoremap <leader>so :OpenSession<Space>
+nnoremap <leader>ss :SaveSession<Space>
+nnoremap <leader>sd :DeleteSession<CR>
+nnoremap <leader>sc :CloseSession<CR>
+
+" Set working directory
+nnoremap <leader>. :lcd %:p:h<CR>
