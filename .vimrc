@@ -71,7 +71,7 @@ set ttyfast
 " 10 GUI
 
 " 11 PRINTING
- 
+
 " 12 MESSAGES AND INFO
 
 " Show info about current command
@@ -166,10 +166,8 @@ set wildmenu
 runtime macros/matchit.vim
 
 " PYTHON SPECIFIC
-autocmd Filetype python setlocal ts=4 sw=4 sts=4 
+autocmd Filetype python setlocal ts=4 sw=4 sts=4
 
-" Default highlight for python is better than polyglot
-let g:polyglot_disabled = ['python']
 let python_highlight_all = 1
 
 " HIGHLIGHTING
@@ -179,6 +177,12 @@ highlight LineNr ctermfg=19 ctermbg=18
 
 " Cursor line appearance
 highlight CursorLine cterm=NONE ctermbg=18
+
+" Change some standart colors
+highlight Function cterm=bold ctermfg=167
+highlight String ctermfg=227
+highlight Character ctermfg=227
+highlight Comment ctermfg=23
 
 " Ale warnings color
 highlight ALEErrorSign ctermbg=NONE ctermfg=red
