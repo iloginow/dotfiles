@@ -243,6 +243,16 @@ let g:tmuxline_preset = {
 
 " AUTOCOMPLETION
 
+" Required by MUComplete
+set completeopt+=menuone,noselect,noinsert
+
+" Shut off completion messages
+set shortmess+=c
+
+" Enable automatic completion at startup
+let g:mucomplete#enable_auto_at_startup = 1
+let g:mucomplete#no_popup_mappings = 1
+
 " SNIPPETS
 
 " Trigger configuration
@@ -380,3 +390,12 @@ nnoremap <leader>sc :CloseSession<CR>
 
 " Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
+
+" MUComplete
+imap <c-j> <plug>(MUcompleteFwd)
+imap <c-k> <plug>(MUcompleteBwd)
+
+inoremap <silent> <plug>(MUcompleteFwdKey) <c-l>
+imap <c-l> <plug>(MUcompleteCycFwd)
+inoremap <silent> <plug>(MUcompleteBwdKey) <c-h>
+imap <c-h> <plug>(MUcompleteCycBwd)

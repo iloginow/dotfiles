@@ -2,7 +2,6 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -60,27 +59,11 @@ RUBY_GEMS="$(ruby -e 'print Gem.user_dir')"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Plugins
-plugins=(z git npm node zsh-paci tmux extract zsh-syntax-highlighting zsh-autosuggestions) 
+plugins=(z git npm node zsh-paci extract zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
-source ~/bin/tmuxinator.zsh
 
 # User configuration
-
-# Add to Path
-export PATH="$NPM_PACKAGES/bin:$RUBY_GEMS/bin:$PATH"
-
-# Manuals
-export MANPATH="$NPM_PACKAGES/share/man:$MANPATH"
-
-# Some global variables
-export EDITOR='vim'
-export DEFAULT_USER=ilia
-export LC_COLLATE="C"
-
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_DATA_HOME="$HOME/.local/share"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -96,7 +79,7 @@ myls() {
 
 mycd() {
 	cd $1;
-	'myls';	
+	'myls';
 }
 
 vplug() {
