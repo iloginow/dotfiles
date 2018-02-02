@@ -74,3 +74,6 @@
 [submodule ".vim/bundle/vim-mucomplete"]
 	path = .vim/bundle/vim-mucomplete
 	url = https://github.com/lifepillar/vim-mucomplete
+[submodule ".vim/bundle/vim-vue"]
+	path = .vim/bundle/vim-vue
+	url = https://github.com/iloginow/vim-vue
