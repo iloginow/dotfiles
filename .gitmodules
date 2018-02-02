@@ -32,9 +32,6 @@
 [submodule ".vim/bundle/vim-json"]
 	path = .vim/bundle/vim-json
 	url = https://github.com/elzr/vim-json
-[submodule ".vim/bundle/vim-vue"]
-	path = .vim/bundle/vim-vue
-	url = https://github.com/posva/vim-vue
 [submodule ".vim/bundle/delimitMate"]
 	path = .vim/bundle/delimitMate
 	url = https://github.com/Raimondi/delimitMate
