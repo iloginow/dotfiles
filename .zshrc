@@ -20,6 +20,16 @@ POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND='249'
 NPM_PACKAGES="${HOME}/.npm-global"
 RUBY_GEMS="$(ruby -e 'print Gem.user_dir')"
 
+export ZSH=$HOME/.oh-my-zsh
+export PATH="$NPM_PACKAGES/bin:$RUBY_GEMS/bin:$PATH"
+export MANPATH="$NPM_PACKAGES/share/man:$MANPATH"
+export EDITOR='vim'
+export DEFAULT_USER=ilia
+export LC_COLLATE="C"
+
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -59,7 +69,7 @@ RUBY_GEMS="$(ruby -e 'print Gem.user_dir')"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Plugins
-plugins=(z git npm node zsh-paci extract zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(z git npm node zsh-paci extract zsh-syntax-highlighting zsh-autosuggestions webp)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -78,7 +88,7 @@ myls() {
 }
 
 mycd() {
-	cd $1;
+  cd $1;
 	'myls';
 }
 
@@ -104,5 +114,4 @@ alias cd="mycd"
 alias ls="myls"
 alias vplug="vplug"
 alias vunplug="vunplug"
-
 

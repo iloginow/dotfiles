@@ -1,15 +1,15 @@
 snippet base
-	<template>
-		$1
+	<template lang="pug">
+	$2
 	</template>
 
 	<script>
 	export default {
-		$2	
+		name: '$1'
 	}
 	</script>
 
-	<style>
+	<style lang="stylus">
 	$3
 	</style>
 snippet routerv
