@@ -86,3 +86,6 @@
 [submodule ".vim/bundle/vim-phpqa"]
 	path = .vim/bundle/vim-phpqa
 	url = https://github.com/joonty/vim-phpqa
+[submodule ".vim/bundle/ag.vim"]
+	path = .vim/bundle/ag.vim
+	url = https://github.com/rking/ag.vim
