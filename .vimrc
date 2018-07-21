@@ -276,6 +276,7 @@ let g:vim_json_syntax_conceal = 0
 " Assign default linters for different filetypes
 let g:ale_linters = {
 \   'javascript': ['eslint'],
+\   'vue': ['eslint']
 \}
 
 " Assign default fixers for different filetypes
@@ -293,6 +294,12 @@ let g:ale_sign_warning = '⚠'
 
 " TAGBAR
 let g:tagbar_autofocus = 1
+
+" AG SEARCH
+let g:ag_working_path_mode="r"
+
+" CTRLP
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " KEY MAPPINGS
 

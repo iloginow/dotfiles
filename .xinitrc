@@ -63,3 +63,7 @@ case $session in
     # No known session, try to run it as command
     *) exec $1;;
 esac
+
+xset s off
+xset -dpms
+xset s noblank
