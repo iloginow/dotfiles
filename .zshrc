@@ -19,9 +19,10 @@ POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND='249'
 # Packages
 NPM_PACKAGES="${HOME}/.npm-global"
 RUBY_GEMS="$(ruby -e 'print Gem.user_dir')"
+GOPATH="${HOME}/go"
 
 export ZSH=$HOME/.oh-my-zsh
-export PATH="$NPM_PACKAGES/bin:$RUBY_GEMS/bin:$PATH"
+export PATH="$NPM_PACKAGES/bin:$RUBY_GEMS/bin:$GOPATH/bin:$PATH"
 export MANPATH="$NPM_PACKAGES/share/man:$MANPATH"
 export EDITOR='vim'
 export DEFAULT_USER=ilia
