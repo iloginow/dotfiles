@@ -301,6 +301,15 @@ let g:ag_working_path_mode="r"
 " CTRLP
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
+" VIMTEX
+let g:tex_flavor = 'latex'
+let g:vimtex_view_method = 'mupdf'
+
+" Start vim with a server
+if empty(v:servername) && exists('*remote_startserver')
+  call remote_startserver('VIM')
+endif
+
 " KEY MAPPINGS
 
 function! Expander()
