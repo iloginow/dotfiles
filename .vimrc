@@ -304,6 +304,7 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 " VIMTEX
 let g:tex_flavor = 'latex'
 let g:vimtex_view_method = 'mupdf'
+let g:vimtex_compiler_engine = 'xelatex'
 
 " Start vim with a server
 if empty(v:servername) && exists('*remote_startserver')
