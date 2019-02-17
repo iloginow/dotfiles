@@ -98,3 +98,6 @@
 [submodule ".vim/bundle/tsuquyomi"]
 	path = .vim/bundle/tsuquyomi
 	url = https://github.com/Quramy/tsuquyomi
+[submodule ".vim/bundle/vim-dtsm"]
+	path = .vim/bundle/vim-dtsm
+	url = https://github.com/Quramy/vim-dtsm
