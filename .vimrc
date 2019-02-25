@@ -276,12 +276,14 @@ let g:vim_json_syntax_conceal = 0
 " Assign default linters for different filetypes
 let g:ale_linters = {
 \   'javascript': ['eslint'],
+\   'typescript': ['tslint'],
 \   'vue': ['eslint']
 \}
 
 " Assign default fixers for different filetypes
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
+\   'typescript': ['tslint'],
 \   'vue': ['eslint']
 \}
 
